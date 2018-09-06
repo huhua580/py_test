@@ -31,6 +31,7 @@ def person(name, age, **k):
 extra = {'city':'beijing', 'job':'engineer'}
 person('jack', 25,**extra)
 '''
+'''
 def f1(a, b, c=0, *args, **kw):
     print('a=', a, 'b=', b, 'c=', c, 'args=', args, 'kw=', kw)
 def f2(a, b, c=0, *, d, **kw):
@@ -48,3 +49,24 @@ f1(*args, **kw)
 args = (1, 2, 3)
 kw = {'d' : 99, 'x' : '#'}
 f2(*args, **kw)
+'''
+'''
+def fact(n):
+    return fact_iter(n, 1)
+
+def fact_iter(num, product):
+    if num == 1:
+        return product
+    return fact_iter(num-1, num*product)
+
+print(fact(800))
+'''
+def move(n, a, b, c):
+    if(n == 1):
+        print(a, '-->', c)
+    else:
+        move(n-1, a, c, b)
+        print(a, '-->', c)
+        move(n-1, b, a, c)
+
+move(4, 'A', 'B', 'C')
