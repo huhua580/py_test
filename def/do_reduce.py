@@ -55,8 +55,8 @@ def prod(l):
 print('3*5*7*9=',prod([3, 5 , 7, 9]))
 
 '''
+'''
 s = '123.456'
-
 def str2float (s):
     def char2num(s):
         digits = {'0': 0, '1': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9}
@@ -72,3 +72,20 @@ def str2float (s):
     sum = reduce(fn, map(char2num, s))/pow(10, len(s)-i)
     return sum
 print("str2float = ", str2float(s))
+'''
+#字符串转浮点数
+s = '12.3456'
+def str2float(s):
+    def char2num(s):
+        return {'0': 0, '1': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9}[s]
+    def fn (x, y):
+        return x * 10 + y
+    try:
+        s.index('.')
+    except Exception:
+        s = s + '.'
+    i = s.index('.')
+    s = s[:i] + s[i+1:]
+    return reduce(fn, map(char2num, s))/pow(10, len(s)-i)
+
+print('str2float =', str2float(s))
