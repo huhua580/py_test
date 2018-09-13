@@ -13,13 +13,27 @@ print_score(std2)
 #这是面向对象的写法
 class Student(object):
     def __init__(self, name, score):
-        self.name = name
-        self.score = score
+        self.__name = name
+        self.__score = score
+
+    def get_name(self):
+        return self.__name
+    def set_name(self, name):
+        self.__name = name
+
+    def get_scoer(self):
+        return self.__score
+    def set_scoer(self, scoer):
+        if 0 <= scoer <= 100:
+            self.__score = scoer
+        else:
+            print('bad score')
 
     def print_score(self):
-        print('%s : %s' %(self.name, self.score))
+        print('%s : %s' %(self.__name, self.__score))
 
 bob = Student('bob', 81)
 lisa = Student('Lisa Simpson', 85)
+
 bob.print_score()
 lisa.print_score()
